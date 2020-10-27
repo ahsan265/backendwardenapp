@@ -1,0 +1,35 @@
+export const SERVER_ERROR = 'Internal sever error';
+export const SIGNUP_SUCCESS = 'User created successfully';
+export const LOGIN_SUCCESS = 'You have loggedIn successfully';
+export const NO_USER = 'User does not exist';
+export const ALREADY_EXIST = 'User already exist, please login';
+export const UNAUTHORIZED = 'Not authorized to be here';
+export const INVALID_USER = 'Username or password is not valid';
+
+export const NOT_EXIST = 'Email does not exist in our database, please enter a correct email';
+export const INVALID_TOKEN = 'Token not valid';
+export const FORGOT_SUCCESS = 'Forgot password request sent';
+export const PASSWORD_REQUEST = 'Forgot password request';
+export const PASSWORD_EXIST = 'Password already exist please, login or continue with password reset';
+export const RESET_SUCCESS = 'Password successfully reset';
+export const TRAFFIC_WARDER_SUCCESS = 'Traffic warden created successfully';
+export const WARDEN_EXIST = 'Traffic warden already exist';
+export const REPORT_SUCCESS = 'Report sent successfully';
+export const NOT_WARDEN = 'Only traffic warden can send a report';
+export const NOT_REPORT = 'No report found';
+export const REPORTS = 'Reports retrieved successfully';
+export const UNDEFINED = 'This user is undefined';
+export const MAP_SUCCESS = 'Map created successfully';
+export const MAP_UPDATE = 'Map updated successfully';
+export const REPORT_UPDATE = 'Report updated successfully';
+export const INVALID_REPORT_OWNER = 'You have not created any report yet';
+export const NO_WARDEN = 'You have not created any warden yet';
+export const WARDENS = 'Wardens retrieved successfully';
+export const WARDEN_NOT_EXIST = 'Traffic warden does not exist';
+export const WARDEN = 'Traffic warden retrieved successfully'; export const NO_REPORT = 'You have not created any report yet, kindly create one';
+export const NO_UPDATES = 'No traffic updates, please check back';
+export const NO_WARDEN_REPORT = 'Sorry, there are no reports available';
+// export const WARDEN_UPDATE = 'Warden updated successfully'
+export const USER_DELETED = 'Warden deleted successfully';
+export const WARDEN_UPDATE = 'Warden updated successfully'
+export const REPORT_DELETED = 'Report deleted successfully';
