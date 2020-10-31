@@ -24,7 +24,6 @@ export const geLatLong = async (city) => {
 
 export const reportTraffic = async (item) => {
 	try {
-		console.log("hello",item);
 		const report = new Reports({...item})
 		return await report.save(report)
 	} catch (err) {
@@ -35,6 +34,46 @@ export const reportTraffic = async (item) => {
 export const findReport = async (reportId) => {
 	try {
 		return await Reports.findOne({_id: reportId})
+	} catch (err) {
+		return err
+	}
+
+}
+export const findReportByLocation = async (loc) => {
+	try {
+		return await Reports.find({location: loc})
+	} catch (err) {
+		return err
+	}
+
+}
+export const findReportByWarden= async (warden) => {
+	try {
+		return await Reports.find({reportedBy: warden})
+	} catch (err) {
+		return err
+	}
+
+}
+export const findReportByTimeDuration= async (TimeDuration) => {
+	try {
+		return await Reports.find({congestionTime: TimeDuration})
+	} catch (err) {
+		return err
+	}
+
+}
+export const findReportByRoadBlock = async (RoadBlock) => {
+	try {
+		return await Reports.find({trafficType: RoadBlock})
+	} catch (err) {
+		return err
+	}
+
+}
+export const findReportByTrafficincident = async (TrafficIncident) => {
+	try {
+		return await Reports.find({congestionDetails: TrafficIncident})
 	} catch (err) {
 		return err
 	}
