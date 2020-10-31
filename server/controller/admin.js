@@ -3,7 +3,7 @@ import {SERVER_ERROR, TRAFFIC_WARDER_SUCCESS, NOT_REPORT, REPORTS, NO_WARDEN,WAR
 import { createPassword, createNewToken } from '../utils/security';
 import { getAllReport, updateReports, destroyWarden, destroyWardenReport } from '../services/admin';
 
-import { findReport, findReportByUserId } from '../services/reports';
+import { findReport, findReportByUserId,findReportByTrafficincident,findReportByRoadBlock,findReportByTimeDuration,findReportByWarden,findReportByLocation  } from '../services/reports';
 
 
 
@@ -90,7 +90,111 @@ export const fetchOneReports = async (req, res) => {
 				message: SERVER_ERROR
 			})	}
 }
-
+export const fetchReportsByLocation = async (req, res) => {
+	try {
+		const location = req.params.loc;
+		const report = await findReportByLocation(location);
+		if (!report || report == null) {
+			return res.status(404).json({
+				status: 404,
+				message: NOT_REPORT
+			})
+		}
+		return res.status(200).json({
+			status: 200,
+			message: REPORTS,
+			data: report
+		})
+	} catch (err) {
+			return res.status(500).json({
+				status: 500,
+				message: SERVER_ERROR
+			})	}
+}
+export const fetchReportsByWarden = async (req, res) => {
+	try {
+		const warden = req.params.ward;
+		const report = await findReportByWarden(warden);
+		if (!report || report == null) {
+			return res.status(404).json({
+				status: 404,
+				message: NOT_REPORT
+			})
+		}
+		return res.status(200).json({
+			status: 200,
+			message: REPORTS,
+			data: report
+		})
+	} catch (err) {
+			return res.status(500).json({
+				status: 500,
+				message: SERVER_ERROR
+			})	}
+}
+export const fetchReportsBytimeDuration = async (req, res) => {
+	try {
+		const time1 = req.params.time;
+		const report = await findReportByTimeDuration(time1);
+		if (!report || report == null) {
+			return res.status(404).json({
+				status: 404,
+				message: NOT_REPORT
+			})
+		}
+		return res.status(200).json({
+			status: 200,
+			message: REPORTS,
+			data: report
+		})
+	} catch (err) {
+			return res.status(500).json({
+				status: 500,
+				message: SERVER_ERROR
+			})	}
+}
+export const fetchReportsByRoadBlock = async (req, res) => {
+	try {
+		const Roadblock = req.params.Rb;
+		const report = await findReportByRoadBlock(Roadblock);
+		if (!report || report == null) {
+			return res.status(404).json({
+				status: 404,
+				message: NOT_REPORT
+			})
+		}
+		return res.status(200).json({
+			status: 200,
+			message: REPORTS,
+			data: report
+		})
+	} catch (err) {
+			return res.status(500).json({
+				status: 500,
+				message: SERVER_ERROR
+			})	}
+}
+export const fetchReportsByTrafficincident = async (req, res) => {
+	try {
+		const incident1 = req.params.incident;
+		const report = await findReportByTrafficincident(incident1);
+		if (!report || report == null) {
+			return res.status(404).json({
+				status: 404,
+				message: NOT_REPORT
+			})
+		}
+		return res.status(200).json({
+			status: 200,
+			message: REPORTS,
+			data: report
+		})
+	} catch (err) {
+			return res.status(500).json({
+				status: 500,
+				message: SERVER_ERROR
+			})	}
+}
 export const getTrafficWardens = async (req, res) => {
 	try {
 		const results = await getAllWarden();
